@@ -1,15 +1,25 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# ALPS-HazardMap
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Intro
+이 레포지토리는 알프스 처리수의 방류 현황`(해역 모니터링, 탱크 내 잔여량, 어획되는 물고기 체내에 검출되는 트리튬의 양 등)`을 맵으로 표시해주는 서비스인 알프스 해저드맵(ALPS-HazardMap)을 보존하기 위한 장소입니다.
+<br>
+<br>
+내가 현재 살고있는 곳은 일본 그 중 「센다이」 라는 동네인데, 센다이는 지리적으로 후쿠시마 바로 위에 위치해 있다보니 방사능에 관해 여러생각을 하지않을 수 없었고, 최근(2023.08) 기시다 정부가 **알프스 처리수** 를 바다로 방류함으로 인해 그 불안과 감정은 점점 커져가고 있다. 이 와중에 걱정/불평만 하고 있기에는 아무것도 하지 않는 내자신이 너무 무책임하다는 나의 생각과, 물 들어올 때 노 저어라 라는 생각에 힘입어 이 프로젝트를 시작하고자 한다.
 
-## About Laravel
+## 사전 조사
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<details>
+<summary>
+알프스 처리수란?
+</summary>
+트리튬 이외의 방사성 물질이 안전에 관한 규제 기준치를 확실하게 밑돌 때까지 다핵종 제거설비 등으로 정화 처리한 물(트리튬을 제외한 공시농도비 총계 1미만)을 ‘ALPS처리수’라고 합니다.(출처 : 도쿄전력 처리수 포탈 사이트)<br>
+쉽게 말해서, alps라고 불리는 여러 필터 장비를 이용해 오  
+</details>
+
+
+
+
+
 
 - [Simple, fast routing engine](https://laravel.com/docs/routing).
 - [Powerful dependency injection container](https://laravel.com/docs/container).
