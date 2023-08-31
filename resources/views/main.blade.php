@@ -7,8 +7,8 @@
     <title>ALPS HazardMap</title>
 </head>
 <body>
-    <div id="map" style="height:500px"></div>
-    <script src="{{ asset('js/map.js') }}"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?language=kr&region=KR&key={{ $apiKey }}&callback=initMap" async defer></script>
+    <div id="app">
+      <map-component :apikey="{{ $apiKey }}"></map-component>
+    </div>
 </body>
 </html>
