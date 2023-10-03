@@ -8,7 +8,7 @@
 </head>
 <body>
     <div id="app">
-      <map-component :apikey="{{ $apiKey }}"></map-component>
+      <map-component :map-data="{{ json_encode($mapData) }}"></map-component>
     </div>
 </body>
 </html>

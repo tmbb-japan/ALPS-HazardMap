@@ -3,14 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Config;
+use App\Repositories\MapRepository;
 
 class MainController extends Controller
 {
+    protected $mapRepository;
+    public function __construct(MapRepository $mapRepository) {
+        $this->mapRepository = $mapRepository;
+    }
+
     public function index()
     {
-        $apiKey = config('services.google.key');
-        return view('main', ['apiKey' => $apiKey]);
+        $mapData = $this->mapRepository->requestMap();
+        return view('main', ['mapData' => $mapData]);
     }
 }
-?>

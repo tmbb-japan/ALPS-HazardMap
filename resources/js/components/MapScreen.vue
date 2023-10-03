@@ -5,7 +5,7 @@
 <script>
     export default {
         props: {
-            apikey: String
+            mapData: Object // mapData를 props로 받음
         },
         mounted() {
             this.initMap();
@@ -13,7 +13,7 @@
         methods: {
             initMap() {
                 const script = document.createElement('script');
-                script.src = `https://maps.googleapis.com/maps/api/js?language=kr&region=KR&key=${this.apikey}&callback=initMap`;
+                script.src = this.mapData;
                 script.async = true;
                 script.defer = true;
                 script.onload = () => {
