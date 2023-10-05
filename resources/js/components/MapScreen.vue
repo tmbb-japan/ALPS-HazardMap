@@ -3,6 +3,7 @@
 </template>
 
 <script>
+    import axios from 'axios';
     export default {
         props: {
             apiKey: String
@@ -11,22 +12,37 @@
             this.initMap();
         },
         methods: {
-            initMap() {
-                const script = document.createElement('script');
-                script.src = `https://maps.googleapis.com/maps/api/js?language=kr&region=JP&key=${this.apiKey}&callback=initMap`;
-                script.async = true;
-                script.defer = true;
-                script.onload = () => {
-                    this.loadMap();
-                };
-                document.head.appendChild(script);
+            async initMap() {
+                const cachedMapData = await this.getCachedMapData();
+                if (cachedMapData) {
+                    this.loadMap(cachedMapData);
+                } else {
+                    const script = document.createElement('script');
+                    script.src = `https://maps.googleapis.com/maps/api/js?language=kr&region=JP&key=${this.apiKey}&callback=initMap`;
+                    script.async = true;
+                    script.defer = true;
+                    script.onload = () => {
+                        this.loadMap();
+                    };
+                    document.head.appendChild(script);                
+                }
             },
-            loadMap() {
+            async getCachedMapData() {
+                const cacheKey = 'google_map_data';
+                const cachedData = await axios.get(`/api/cache/${cacheKey}`);
+                return cachedData.data;
+            },
+            async cacheMapData(data) {
+                const cacheKey = 'google_map_data';
+                await axios.post(`/api/cache/${cacheKey}`, data);
+            },
+            loadMap(data) {
                 const myLatLng = { lat: 37.4219999, lng: 141.0329822 };
                 const map = new google.maps.Map(document.getElementById("map"), {
                     zoom: 8,
                     center: myLatLng,
                 });
+                this.cacheMapData(data);
             }            
         }
     }
